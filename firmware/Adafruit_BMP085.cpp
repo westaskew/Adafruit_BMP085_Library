@@ -87,6 +87,8 @@ uint32_t Adafruit_BMP085::readRawPressure(void) {
   return raw;
 }
 
+#define B3_OLD B3
+#undef B3
 
 int32_t Adafruit_BMP085::readPressure(void) {
   int32_t UT, UP, B3, B5, B6, X1, X2, X3, p;
@@ -127,6 +129,7 @@ int32_t Adafruit_BMP085::readPressure(void) {
   return p;
 }
 
+#define B3 B3_OLD
 
 float Adafruit_BMP085::readTemperature(void) {
   int32_t UT, X1, X2, B5;     // following ds convention
